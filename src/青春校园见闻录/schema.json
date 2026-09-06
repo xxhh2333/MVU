@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "default": {},
+  "type": "object",
+  "properties": {
+    "系统": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "日期": {
+          "default": "4月7日",
+          "type": "string"
+        },
+        "时间": {
+          "default": "08:00",
+          "type": "string"
+        },
+        "时段": {
+          "default": "早晨",
+          "type": "string",
+          "enum": [
+            "早晨",
+            "上午",
+            "午休",
+            "放学",
+            "傍晚",
+            "夜晚"
+          ]
+        },
+        "地点": {
+          "default": "青叶丘高等学校",
+          "type": "string"
+        }
+      }
+    },
+    "琴音": {
+      "default": {
+        "当前穿着": "待初始化",
+        "所在": "待初始化",
+        "身体": {
+          "胸部": "待初始化",
+          "腰身": "待初始化",
+          "小穴": "待初始化",
+          "后庭": "待初始化"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "当前穿着": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "所在": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "身体": {
+          "default": {
+            "胸部": "待初始化",
+            "腰身": "待初始化",
+            "小穴": "待初始化",
+            "后庭": "待初始化"
+          },
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "enum": [
+              "胸部",
+              "腰身",
+              "小穴",
+              "后庭"
+            ]
+          },
+          "additionalProperties": {
+            "type": "string"
+          },
+          "required": [
+            "胸部",
+            "腰身",
+            "小穴",
+            "后庭"
+          ]
+        }
+      }
+    },
+    "遥": {
+      "default": {
+        "当前穿着": "待初始化",
+        "所在": "待初始化",
+        "身体": {
+          "胸部": "待初始化",
+          "腰身": "待初始化",
+          "小穴": "待初始化",
+          "后庭": "待初始化"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "当前穿着": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "所在": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "身体": {
+          "default": {
+            "胸部": "待初始化",
+            "腰身": "待初始化",
+            "小穴": "待初始化",
+            "后庭": "待初始化"
+          },
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "enum": [
+              "胸部",
+              "腰身",
+              "小穴",
+              "后庭"
+            ]
+          },
+          "additionalProperties": {
+            "type": "string"
+          },
+          "required": [
+            "胸部",
+            "腰身",
+            "小穴",
+            "后庭"
+          ]
+        }
+      }
+    },
+    "栞": {
+      "default": {
+        "当前穿着": "待初始化",
+        "所在": "待初始化",
+        "身体": {
+          "胸部": "待初始化",
+          "腰身": "待初始化",
+          "小穴": "待初始化",
+          "后庭": "待初始化"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "当前穿着": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "所在": {
+          "default": "待初始化",
+          "type": "string"
+        },
+        "身体": {
+          "default": {
+            "胸部": "待初始化",
+            "腰身": "待初始化",
+            "小穴": "待初始化",
+            "后庭": "待初始化"
+          },
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "enum": [
+              "胸部",
+              "腰身",
+              "小穴",
+              "后庭"
+            ]
+          },
+          "additionalProperties": {
+            "type": "string"
+          },
+          "required": [
+            "胸部",
+            "腰身",
+            "小穴",
+            "后庭"
+          ]
+        }
+      }
+    }
+  }
+}

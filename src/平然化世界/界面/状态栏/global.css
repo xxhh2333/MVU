@@ -1,0 +1,57 @@
+:root {
+  /* 语义配色（来源见 design-spec.md UI 设计段） */
+  --c-bg: #fff7f4;        /* 奶油底 */
+  --c-surface: #ffffff;   /* 卡面 */
+  --c-primary: #f28ba8;   /* 樱粉：主色 */
+  --c-accent: #fde3ea;    /* 樱花浅粉 */
+  --c-desire: #f5a25d;    /* 蜜桃：欲情 */
+  --c-text: #5c4a4e;      /* 暖棕 */
+  --c-muted: #b79aa0;     /* 浅粉灰 */
+  --c-border: #f6dde2;    /* 樱贝粉线 */
+  --c-stage-初识: #9aa0ab;
+  --c-stage-熟识: #e0b25f;
+  --c-stage-亲密: #f28ba8;
+  --c-stage-恋人: #e0567e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: transparent;
+  color: var(--c-text);
+  font-family: 'Sarasa UI SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#app {
+  width: 100%;
+}
+
+.status-root {
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 折叠展开过渡 */
+.unfold-enter-active,
+.unfold-leave-active {
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+.unfold-enter-from,
+.unfold-leave-to {
+  opacity: 0;
+  max-height: 0;
+}
+.unfold-enter-to,
+.unfold-leave-from {
+  opacity: 1;
+  max-height: 1400px;
+}

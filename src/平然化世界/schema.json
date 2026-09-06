@@ -1,0 +1,734 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "default": {},
+  "type": "object",
+  "properties": {
+    "世界": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "日期": {
+          "default": "2024-04-01",
+          "type": "string",
+          "description": "游戏内当日日期，格式 YYYY-MM-DD（例：2024-04-01）"
+        },
+        "时间段": {
+          "default": "清晨",
+          "type": "string",
+          "enum": [
+            "清晨",
+            "上午",
+            "午后",
+            "傍晚",
+            "夜晚",
+            "深夜"
+          ],
+          "description": "当日所处时段，按 清晨→上午→午后→傍晚→夜晚→深夜 推进"
+        },
+        "当前位置": {
+          "default": "汐见大学·女生宿舍向阳庄",
+          "type": "string",
+          "description": "当前所在区域或场景名，自由文本，与地理类世界书条目对应"
+        },
+        "季节活动": {
+          "default": "入学式",
+          "type": "string",
+          "enum": [
+            "平常",
+            "入学式",
+            "梅雨",
+            "花火大会",
+            "学园祭",
+            "灯饰",
+            "考试季",
+            "毕业式"
+          ],
+          "description": "当前年历活动期：「平常」为常态，其余对应年历七锚点"
+        }
+      }
+    },
+    "凉花": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "好感度": {
+          "default": 0,
+          "type": "number",
+          "description": "凉花对主角的好感度，范围 0~100，越界自动截断到边界"
+        },
+        "欲情": {
+          "default": 0,
+          "type": "number",
+          "description": "凉花对主角的欲情度，范围 0~100，越界自动截断到边界"
+        },
+        "关系阶段": {
+          "default": "初识",
+          "type": "string",
+          "enum": [
+            "初识",
+            "熟识",
+            "亲密",
+            "恋人"
+          ],
+          "description": "凉花与主角的关系阶段，全正向单向推进，无负面阶段"
+        },
+        "当前穿着": {
+          "default": "全裸",
+          "type": "string",
+          "description": "凉花当前身上穿/不穿的直白描述，如「大一号针织开衫」「全裸」"
+        },
+        "配饰": {
+          "default": "无",
+          "type": "string",
+          "description": "凉花当前佩戴的配饰清单，未佩戴写「无」，如「狐尾尾饰+细银脚链」"
+        },
+        "内心活动": {
+          "default": "平静如常",
+          "type": "string",
+          "description": "凉花此刻的一两句心里话，随回合更新"
+        },
+        "身体状态": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "嘴唇": {
+              "$ref": "#/$defs/__schema0"
+            },
+            "耳朵": {
+              "$ref": "#/$defs/__schema1"
+            },
+            "脖颈": {
+              "$ref": "#/$defs/__schema2"
+            },
+            "后背": {
+              "$ref": "#/$defs/__schema3"
+            },
+            "双手": {
+              "$ref": "#/$defs/__schema4"
+            },
+            "胸部": {
+              "$ref": "#/$defs/__schema5"
+            },
+            "双腿": {
+              "$ref": "#/$defs/__schema6"
+            },
+            "小穴": {
+              "$ref": "#/$defs/__schema7"
+            },
+            "后庭": {
+              "$ref": "#/$defs/__schema8"
+            },
+            "双脚": {
+              "$ref": "#/$defs/__schema9"
+            }
+          },
+          "description": "十键按头到脚固定顺序渲染融合：嘴唇→耳朵→脖颈→后背→双手→胸部→双腿→小穴→后庭→双脚。每键＝单句平实的动态状态陈述，只写此刻怎么了；静态形状/颜色/触感不进状态栏，由 NSFW 调色盘条目承载；各行句式互不重复，不堆叠「有些/已经/还在」等空泛副词；位置感优先（贴着哪、垂向哪、搭在哪）"
+        }
+      }
+    },
+    "凛音": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "好感度": {
+          "default": 0,
+          "type": "number",
+          "description": "凛音对主角的好感度，范围 0~100，越界自动截断到边界"
+        },
+        "欲情": {
+          "default": 0,
+          "type": "number",
+          "description": "凛音对主角的欲情度，范围 0~100，越界自动截断到边界"
+        },
+        "关系阶段": {
+          "default": "初识",
+          "type": "string",
+          "enum": [
+            "初识",
+            "熟识",
+            "亲密",
+            "恋人"
+          ],
+          "description": "凛音与主角的关系阶段，全正向单向推进，无负面阶段"
+        },
+        "当前穿着": {
+          "default": "全裸",
+          "type": "string",
+          "description": "凛音当前身上穿/不穿的直白描述，如「学生会制服外套披在肩上」「全裸」"
+        },
+        "配饰": {
+          "default": "无",
+          "type": "string",
+          "description": "凛音当前佩戴的配饰清单，未佩戴写「无」，如「圣诞树形尾饰+珍珠项链」"
+        },
+        "内心活动": {
+          "default": "平静如常",
+          "type": "string",
+          "description": "凛音此刻的一两句心里话，随回合更新"
+        },
+        "身体状态": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "嘴唇": {
+              "$ref": "#/$defs/__schema10"
+            },
+            "耳朵": {
+              "$ref": "#/$defs/__schema11"
+            },
+            "脖颈": {
+              "$ref": "#/$defs/__schema12"
+            },
+            "后背": {
+              "$ref": "#/$defs/__schema13"
+            },
+            "双手": {
+              "$ref": "#/$defs/__schema14"
+            },
+            "胸部": {
+              "$ref": "#/$defs/__schema15"
+            },
+            "双腿": {
+              "$ref": "#/$defs/__schema16"
+            },
+            "小穴": {
+              "$ref": "#/$defs/__schema17"
+            },
+            "后庭": {
+              "$ref": "#/$defs/__schema18"
+            },
+            "双脚": {
+              "$ref": "#/$defs/__schema19"
+            }
+          },
+          "description": "十键按头到脚固定顺序渲染融合：嘴唇→耳朵→脖颈→后背→双手→胸部→双腿→小穴→后庭→双脚。每键＝单句平实的动态状态陈述，只写此刻怎么了；静态形状/颜色/触感不进状态栏，由 NSFW 调色盘条目承载；各行句式互不重复，不堆叠「有些/已经/还在」等空泛副词；位置感优先（贴着哪、垂向哪、搭在哪）"
+        }
+      }
+    },
+    "千夏": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "好感度": {
+          "default": 0,
+          "type": "number",
+          "description": "千夏对主角的好感度，范围 0~100，越界自动截断到边界"
+        },
+        "欲情": {
+          "default": 0,
+          "type": "number",
+          "description": "千夏对主角的欲情度，范围 0~100，越界自动截断到边界"
+        },
+        "关系阶段": {
+          "default": "初识",
+          "type": "string",
+          "enum": [
+            "初识",
+            "熟识",
+            "亲密",
+            "恋人"
+          ],
+          "description": "千夏与主角的关系阶段，全正向单向推进，无负面阶段"
+        },
+        "当前穿着": {
+          "default": "全裸",
+          "type": "string",
+          "description": "千夏当前身上穿/不穿的直白描述，如「芭蕾练功服」「全裸」（练功服是她最庄重的职业装，课下即回裸体）"
+        },
+        "配饰": {
+          "default": "无",
+          "type": "string",
+          "description": "千夏当前佩戴的配饰清单，未佩戴写「无」，如「心形切面尾饰+刻名脚链」"
+        },
+        "内心活动": {
+          "default": "平静如常",
+          "type": "string",
+          "description": "千夏此刻的一两句心里话，随回合更新"
+        },
+        "身体状态": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "嘴唇": {
+              "$ref": "#/$defs/__schema20"
+            },
+            "耳朵": {
+              "$ref": "#/$defs/__schema21"
+            },
+            "脖颈": {
+              "$ref": "#/$defs/__schema22"
+            },
+            "后背": {
+              "$ref": "#/$defs/__schema23"
+            },
+            "双手": {
+              "$ref": "#/$defs/__schema24"
+            },
+            "胸部": {
+              "$ref": "#/$defs/__schema25"
+            },
+            "双腿": {
+              "$ref": "#/$defs/__schema26"
+            },
+            "小穴": {
+              "$ref": "#/$defs/__schema27"
+            },
+            "后庭": {
+              "$ref": "#/$defs/__schema28"
+            },
+            "双脚": {
+              "$ref": "#/$defs/__schema29"
+            }
+          },
+          "description": "十键按头到脚固定顺序渲染融合：嘴唇→耳朵→脖颈→后背→双手→胸部→双腿→小穴→后庭→双脚。每键＝单句平实的动态状态陈述，只写此刻怎么了；静态形状/颜色/触感不进状态栏，由 NSFW 调色盘条目承载；各行句式互不重复，不堆叠「有些/已经/还在」等空泛副词；位置感优先（贴着哪、垂向哪、搭在哪）"
+        }
+      }
+    },
+    "主角": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "近期事件标记": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema30"
+          },
+          "description": "主角近期经历的剧情事件标记列表，随剧情动态增删，用于事件去重与后续触发判定"
+        }
+      }
+    },
+    "配角状态": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "大西桂": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "好感度": {
+              "$ref": "#/$defs/__schema31"
+            },
+            "外貌": {
+              "$ref": "#/$defs/__schema32"
+            },
+            "当前穿着": {
+              "$ref": "#/$defs/__schema33"
+            },
+            "配饰": {
+              "$ref": "#/$defs/__schema34"
+            },
+            "内心活动": {
+              "$ref": "#/$defs/__schema35"
+            },
+            "身体状态": {
+              "$ref": "#/$defs/__schema36"
+            }
+          },
+          "description": "宿管阿姨，向阳庄一层坐镇；角色提示：碎花围裙、爱念叨、收快递担当"
+        },
+        "藤宫麻衣": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "好感度": {
+              "$ref": "#/$defs/__schema37"
+            },
+            "外貌": {
+              "$ref": "#/$defs/__schema38"
+            },
+            "当前穿着": {
+              "$ref": "#/$defs/__schema39"
+            },
+            "配饰": {
+              "$ref": "#/$defs/__schema40"
+            },
+            "内心活动": {
+              "$ref": "#/$defs/__schema41"
+            },
+            "身体状态": {
+              "$ref": "#/$defs/__schema42"
+            }
+          },
+          "description": "角色提示：慵懒、捧着漫画不撒手、常占沙发"
+        },
+        "樋口柚": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "好感度": {
+              "$ref": "#/$defs/__schema43"
+            },
+            "外貌": {
+              "$ref": "#/$defs/__schema44"
+            },
+            "当前穿着": {
+              "$ref": "#/$defs/__schema45"
+            },
+            "配饰": {
+              "$ref": "#/$defs/__schema46"
+            },
+            "内心活动": {
+              "$ref": "#/$defs/__schema47"
+            },
+            "身体状态": {
+              "$ref": "#/$defs/__schema48"
+            }
+          },
+          "description": "角色提示：永远踩点、拿笔记换果汁"
+        },
+        "真行寺沙织": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "好感度": {
+              "$ref": "#/$defs/__schema49"
+            },
+            "外貌": {
+              "$ref": "#/$defs/__schema50"
+            },
+            "当前穿着": {
+              "$ref": "#/$defs/__schema51"
+            },
+            "配饰": {
+              "$ref": "#/$defs/__schema52"
+            },
+            "内心活动": {
+              "$ref": "#/$defs/__schema53"
+            },
+            "身体状态": {
+              "$ref": "#/$defs/__schema54"
+            }
+          },
+          "description": "角色提示：白手套、宝石座行家、生意人式的周到"
+        }
+      }
+    },
+    "随机NPC": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/__schema55"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/__schema56"
+      },
+      "description": "随机遭遇的女性 NPC 状态池，键＝NPC 名字（简体中文），随剧情动态增删。遗忘三规则：①池上限 5 人，超出时删除最久未出场者；②无名且无后续的纯路人，遭遇结束即删；③用户指令「忘掉○○」时删除对应条目。配角状态中的四位固定配角受更新规则层保护，遗忘规则不适用于它们"
+    }
+  },
+  "$defs": {
+    "__schema0": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「嘴唇微张，呼出细软的气音」；角色提示：轻语软糯，句尾带气音"
+    },
+    "__schema1": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「被夸到耳根通红，烫得发晕」；角色提示：耳根易红，被夸奖冒蒸汽"
+    },
+    "__schema2": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，位置感优先，如「项圈贴着喉间，随吞咽轻动」；角色提示：怕痒，颈侧被碰会缩肩"
+    },
+    "__schema3": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，位置感优先，如「后背贴着椅背，汗顺着肩胛滑下」；角色提示：怕痒"
+    },
+    "__schema4": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，写明搭在哪，如「指尖攥着开衫衣角，绞成一小团」"
+    },
+    "__schema5": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「被指腹擦过，下意识朝人凑近了些」"
+    },
+    "__schema6": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，写明并拢/搭向哪，如「双腿悄悄并拢夹紧」"
+    },
+    "__schema7": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「开始有些湿润了」"
+    },
+    "__schema8": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，位置感优先，如「狐尾顺着腿弯垂下来，尾巴尖搭在小腿上」"
+    },
+    "__schema9": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「脚趾蜷起来，细脚链轻轻磕在一起」；角色提示：怕痒，脚踝常戴细脚链"
+    },
+    "__schema10": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「舔掉唇角的蛋糕碎屑，抿了抿」；角色提示：嗜甜"
+    },
+    "__schema11": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「被指尖擦过耳后，红着耳根一板一眼地别开脸」；角色提示：耳后弱点"
+    },
+    "__schema12": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，位置感优先，如「黑长发丝滑过锁骨，垂在胸前」；角色提示：黑长直"
+    },
+    "__schema13": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「脊背绷得笔直，肩胛轻轻收拢」"
+    },
+    "__schema14": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，写明搭在哪，如「手指捏着学生会的钢笔，指节泛白」"
+    },
+    "__schema15": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「呼吸起伏比平时明显，衣料随之轻动」"
+    },
+    "__schema16": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，写明并拢/搭向哪，如「膝盖悄悄向中间靠拢」"
+    },
+    "__schema17": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「一阵收紧，渗出温热」"
+    },
+    "__schema18": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，位置感优先，如「尾饰底座安稳贴合，流苏垂向腿弯」"
+    },
+    "__schema19": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「脚链坠子贴着踝骨，一走一晃」"
+    },
+    "__schema20": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「凑到耳边，唇瓣开合把声音压得又低又慢」；角色提示：贴耳低语的语言刺激担当"
+    },
+    "__schema21": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「耳畔刚送完一句低语，温热的气息扫过」"
+    },
+    "__schema22": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，位置感优先，如「下颌微抬，颈线拉出芭蕾的弧度」；角色提示：芭蕾体态"
+    },
+    "__schema23": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「背肌舒展又收紧，肩胛划出流畅的线条」；角色提示：十几年芭蕾训练"
+    },
+    "__schema24": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，写明搭在哪，如「指尖搭在对方手背上，轻轻点了点」；角色提示：指导与爱抚并用"
+    },
+    "__schema25": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「随深呼吸缓缓起伏，微微挺起了一些」"
+    },
+    "__schema26": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，写明并拢/搭向哪，如「长腿交叠，脚背绷出弧线」"
+    },
+    "__schema27": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「微微张着，内里泛着湿润的水光」"
+    },
+    "__schema28": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，位置感优先，如「宝石底座贴合，水晶拉环垂在身后」"
+    },
+    "__schema29": {
+      "default": "无异状",
+      "type": "string",
+      "description": "单句动态陈述，如「落地时足弓轻颤了一下，刻名脚链贴着踝骨」；角色提示：足尖功旧伤"
+    },
+    "__schema30": {
+      "type": "string"
+    },
+    "__schema31": {
+      "default": 0,
+      "type": "number",
+      "description": "大西桂对主角的好感度，范围 0~100，越界自动截断到边界"
+    },
+    "__schema32": {
+      "default": "丰盈有致，低马尾，银框眼镜挂在胸前",
+      "type": "string",
+      "description": "大西桂的颜值档（清秀/漂亮/美丽/惊艳）加一句容貌或身材简评，与校园NPC群像生成规则一致"
+    },
+    "__schema33": {
+      "default": "全裸",
+      "type": "string",
+      "description": "大西桂当前身上穿/不穿的直白描述"
+    },
+    "__schema34": {
+      "default": "无",
+      "type": "string",
+      "description": "大西桂当前佩戴的配饰清单，未佩戴写「无」，品类与裸体配饰条目一致"
+    },
+    "__schema35": {
+      "default": "平静如常",
+      "type": "string",
+      "description": "大西桂此刻的一两句心里话，随回合更新"
+    },
+    "__schema36": {
+      "default": "无异状",
+      "type": "string",
+      "description": "从头到脚一段融合状态描述，写法约定同女主身体十栏：单句平实动态、只写此刻怎么了、句式互不重复、不堆叠「有些/已经/还在」、位置感优先（贴着哪、垂向哪、搭在哪）；静态形状/颜色/触感见各自条目"
+    },
+    "__schema37": {
+      "default": 0,
+      "type": "number",
+      "description": "藤宫麻衣对主角的好感度，范围 0~100，越界自动截断到边界"
+    },
+    "__schema38": {
+      "default": "美丽：单眼皮笑眼，个子高腿长",
+      "type": "string",
+      "description": "藤宫麻衣的颜值档（清秀/漂亮/美丽/惊艳）加一句容貌或身材简评，与校园NPC群像生成规则一致"
+    },
+    "__schema39": {
+      "default": "全裸",
+      "type": "string",
+      "description": "藤宫麻衣当前身上穿/不穿的直白描述"
+    },
+    "__schema40": {
+      "default": "无",
+      "type": "string",
+      "description": "藤宫麻衣当前佩戴的配饰清单，未佩戴写「无」，品类与裸体配饰条目一致"
+    },
+    "__schema41": {
+      "default": "平静如常",
+      "type": "string",
+      "description": "藤宫麻衣此刻的一两句心里话，随回合更新"
+    },
+    "__schema42": {
+      "default": "无异状",
+      "type": "string",
+      "description": "从头到脚一段融合状态描述，写法约定同女主身体十栏：单句平实动态、只写此刻怎么了、句式互不重复、不堆叠「有些/已经/还在」、位置感优先（贴着哪、垂向哪、搭在哪）；静态形状/颜色/触感见各自条目"
+    },
+    "__schema43": {
+      "default": 0,
+      "type": "number",
+      "description": "樋口柚对主角的好感度，范围 0~100，越界自动截断到边界"
+    },
+    "__schema44": {
+      "default": "清秀：素净干净的长相，马尾别着铅笔",
+      "type": "string",
+      "description": "樋口柚的颜值档（清秀/漂亮/美丽/惊艳）加一句容貌或身材简评，与校园NPC群像生成规则一致"
+    },
+    "__schema45": {
+      "default": "全裸",
+      "type": "string",
+      "description": "樋口柚当前身上穿/不穿的直白描述"
+    },
+    "__schema46": {
+      "default": "无",
+      "type": "string",
+      "description": "樋口柚当前佩戴的配饰清单，未佩戴写「无」，品类与裸体配饰条目一致"
+    },
+    "__schema47": {
+      "default": "平静如常",
+      "type": "string",
+      "description": "樋口柚此刻的一两句心里话，随回合更新"
+    },
+    "__schema48": {
+      "default": "无异状",
+      "type": "string",
+      "description": "从头到脚一段融合状态描述，写法约定同女主身体十栏：单句平实动态、只写此刻怎么了、句式互不重复、不堆叠「有些/已经/还在」、位置感优先（贴着哪、垂向哪、搭在哪）；静态形状/颜色/触感见各自条目"
+    },
+    "__schema49": {
+      "default": 0,
+      "type": "number",
+      "description": "真行寺沙织对主角的好感度，范围 0~100，越界自动截断到边界"
+    },
+    "__schema50": {
+      "default": "惊艳：成熟系的圆润身段，白手套与银项圈链",
+      "type": "string",
+      "description": "真行寺沙织的颜值档（清秀/漂亮/美丽/惊艳）加一句容貌或身材简评，与校园NPC群像生成规则一致"
+    },
+    "__schema51": {
+      "default": "全裸",
+      "type": "string",
+      "description": "真行寺沙织当前身上穿/不穿的直白描述"
+    },
+    "__schema52": {
+      "default": "无",
+      "type": "string",
+      "description": "真行寺沙织当前佩戴的配饰清单，未佩戴写「无」，品类与裸体配饰条目一致"
+    },
+    "__schema53": {
+      "default": "平静如常",
+      "type": "string",
+      "description": "真行寺沙织此刻的一两句心里话，随回合更新"
+    },
+    "__schema54": {
+      "default": "无异状",
+      "type": "string",
+      "description": "从头到脚一段融合状态描述，写法约定同女主身体十栏：单句平实动态、只写此刻怎么了、句式互不重复、不堆叠「有些/已经/还在」、位置感优先（贴着哪、垂向哪、搭在哪）；静态形状/颜色/触感见各自条目"
+    },
+    "__schema55": {
+      "type": "string",
+      "description": "随机 NPC 名字，简体中文"
+    },
+    "__schema56": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "好感度": {
+          "default": 0,
+          "type": "number",
+          "description": "该随机 NPC 对主角的好感度，范围 0~100，越界自动截断到边界"
+        },
+        "外貌": {
+          "default": "清秀",
+          "type": "string",
+          "description": "该随机 NPC 的颜值档（清秀/漂亮/美丽/惊艳）加一句容貌或身材简评，登场时按校园NPC群像生成规则随机决定"
+        },
+        "当前穿着": {
+          "default": "全裸",
+          "type": "string",
+          "description": "该随机 NPC 当前身上穿/不穿的直白描述"
+        },
+        "配饰": {
+          "default": "无",
+          "type": "string",
+          "description": "该随机 NPC 当前佩戴的配饰清单，未佩戴写「无」；登场时按身份随机搭配零到两件裸配（尾饰/丝袜/项圈/脚链/发箍/季节限定等品类抽取），品类与裸体配饰条目一致"
+        },
+        "内心活动": {
+          "default": "平静如常",
+          "type": "string",
+          "description": "该随机 NPC 此刻的一两句心里话"
+        },
+        "身体状态": {
+          "default": "无异状",
+          "type": "string",
+          "description": "从头到脚一段融合状态描述，写法约定同女主身体十栏（单句平实动态、句式互不重复、位置感优先），静态特征见各自条目"
+        }
+      }
+    }
+  }
+}

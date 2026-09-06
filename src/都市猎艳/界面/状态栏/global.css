@@ -1,0 +1,64 @@
+:root {
+  /* 语义配色（来源见 design-spec.md UI 设计段） */
+  --c-primary: #b8935a;   /* 鎏金：豪门体面与权势 */
+  --c-bg: #16181d;        /* 墨玉夜色：暗市与底牌 */
+  --c-surface: #1e222b;   /* 幕墙映夜的冷光 */
+  --c-accent: #c94f5c;    /* 胭脂：沦陷的滚烫 */
+  --c-bronze: #c0a06a;    /* 淡铜：初露的锋芒 */
+  --c-text: #e8e2d6;      /* 宣纸白 */
+  --c-muted: #8a8f9c;     /* 雾灰 */
+  --c-border: #2c313c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: transparent;
+  color: var(--c-text);
+  font-family: 'Sarasa UI SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#app {
+  width: 100%;
+}
+
+.status-root {
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 折叠展开过渡 */
+.unfold-enter-active,
+.unfold-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.unfold-enter-from,
+.unfold-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* 亮牌动画过渡 */
+.reveal-enter-active {
+  transition: opacity 0.3s ease;
+}
+.reveal-leave-active {
+  transition: opacity 0.6s ease;
+}
+.reveal-enter-from,
+.reveal-leave-to {
+  opacity: 0;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}

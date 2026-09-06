@@ -1,0 +1,25 @@
+/* 青春校园见闻录 · 状态栏全局样式 —— 语义配色（见 design-spec.md UI 设计段） */
+:root {
+  --c-primary: #e39aab;        /* 脸颊微红时的樱粉温度：标题、时段徽章 */
+  --c-primary-deep: #c2778a;   /* 樱粉的按压态：徽章描边、悬停 */
+  --c-background: #fdf7f2;     /* 窗帘透进来的晨光落在白色校服上：状态栏底色 */
+  --c-surface: #ffffff;        /* 校服白：女主卡片底 */
+  --c-accent: #82b4c0;         /* 海风与泳装季的淡青水色：时间、所在图标 */
+  --c-text: #4d4642;           /* 正文墨色 */
+  --c-text-muted: #a89d94;     /* 铅笔笔记的浅墨：次要文字 */
+  --c-border: #f2e6de;         /* 织物边缘的浅边框 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Microsoft YaHei', system-ui, sans-serif;
+  color: var(--c-text);
+  background: transparent;
+  font-size: 13px;
+  line-height: 1.6;
+}
